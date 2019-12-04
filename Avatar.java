@@ -1,10 +1,15 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Avatar extends Personnage{
 	public ArrayList <Creature> listeAmis;
 	public ArrayList <Accessoires> listeAcc;
+	private Monde monde;
 	//je crois que je vais ajouter une public void ajouterAcc(Accessoires a)
-	public Avatar(String nom,double poids){
+	public Avatar(String nom,double poids,Monde m){
 		super(nom,poids);
+		monde = m;
+		monde.ajouterItem(this);
 		listeAmis=new ArrayList<Creature>();
 		listeAcc= new ArrayList<Accessoires>();
 	}
@@ -34,7 +39,7 @@ public class Avatar extends Personnage{
 	public void devenirAmi(Creature c) {
 		if( ! estAmis(c)){
 			listeAmis.add(c);
-			System.out.println (c.toString()+" devient ami avec "+super.toString());
+			System.out.println (c.getNom()+" devient ami avec "+super.getNom());
 		}
 	}
 	public void perdreAmi(Creature c){
@@ -42,22 +47,20 @@ public class Avatar extends Personnage{
 			for(int i=0;i<listeAmis.size();i++){
 				if(c==listeAmis.get(i)){	
 					listeAmis.remove(i);
+					System.out.println(c.getNom()+" n'est plus ami avec "+super.getNom());
 				}
 			}
 		}
 	}
 	public void rencontrerAmi(Creature c){
-		if (listeAcc.get(0) != null ){
+		if (listeAcc.size()==0)
+			perdreAmi(c);
+		else{
 			c.ajouterAcc(listeAcc.get(0));
-			if (listeAcc.get(0).getPoids() > 0.5 && estAmis(c) ){
+			if (listeAcc.get(0).getPoids() > 0.5){
 				devenirAmi(c);
 			}
 			listeAcc.remove(listeAcc.get(0));
-		}
-		else
-		{
-			if (listeAmis.contains(c)) 
-				perdreAmi(c);
 		}
 	}
 	public double course(){
@@ -74,8 +77,8 @@ public class Avatar extends Personnage{
 	public Creature getCreaturePlusRapide(){
 		Creature c =listeAmis.get(0);
 		for(int i=0;i<listeAmis.size();i++){
-				if(listeAmis.get(i).getVitesse()<listeAmis.get(i+1).getVitesse()){
-					c=listeAmis.get(i+1);
+				if(c.getVitesse()<listeAmis.get(i).getVitesse()){
+					c=listeAmis.get(i);
 				}
 		
 		}	
@@ -91,7 +94,38 @@ public class Avatar extends Personnage{
 		}
 		return cpt;
 	}
-		
+	public void ramasser(Accessoires a){
+		listeAcc.add(a);
+		monde.supprimeItem(a);
+		System.out.println(this.getNom()+" rammasse "+a.getNom());
+	}
+	public void rencontrerVoisins(){
+		for(int i=0; i<monde.getVoisins(this).size() ;i++){
+			if(monde.getVoisins(this).get(i) instanceof Accessoires)
+				ramasser((Accessoires)(monde.getVoisins(this).get(i)));
+			if(monde.getVoisins(this).get(i) instanceof Creature)
+				rencontrerAmi((Creature)(monde.getVoisins(this).get(i)));
+			if(monde.getVoisins(this).get(i) instanceof Avatar)
+				System.out.println(this.getNom()+" fait un salut a "+monde.getVoisins(this).get(i).getNom());
+		}
+	}
+	public void seDeplacer(){
+		int i=5;
+		int j=5;
+		while(i>=4){
+			System.out.println("Entrez une abcisse entre [0;4]");
+			Scanner sc= new Scanner(System.in);
+			i=sc.nextInt();
+		}
+		while(j>=4){
+			System.out.println("Entrez une ordonnee entre [0;4]");
+			Scanner sc2= new Scanner(System.in);
+			j=sc2.nextInt();
+		}
+		System.out.println("Deplacement de "+this.getNom()+" de ["+this.getX()+";"+this.getY()+"] a ["+i+";"+j+"]");
+		this.setX(i);
+		this.setY(j);
+	}
 }
 		
 	

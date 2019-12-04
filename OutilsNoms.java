@@ -9,7 +9,7 @@ public class OutilsNoms{
 			succ++;
 			suivant=0;
 		}
-		String s=tabNoms[suivant]+succ+" \n";
+		String s=tabNoms[suivant]+succ;
 		suivant++;
 		return s;
 		

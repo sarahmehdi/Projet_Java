@@ -7,7 +7,7 @@ public abstract class Item {
 		 this.y=y;
 	}
 	public Item (String nom){
-		 this (nom,−1,−1;
+		 this (nom,-1,-1);
 	}
 	public int getX () {
 		 return x;
@@ -28,6 +28,6 @@ public abstract class Item {
 		return nom+"("+x+","+y+")";
 	}
 	public int distance ( Item item ) { // distance de Manhattan
-		return Math.abs (x−item.x)+Math.abs(y−item.y);
+		return Math.abs (x-item.x)+Math.abs(y-item.y);
 	}
 }

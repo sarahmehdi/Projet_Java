@@ -18,7 +18,7 @@ public class Creature extends Personnage{
 		int i=0;
 		while(i<10){
 			Accessoires a=leSac.retourner(i);
-			System.out.println(a);
+			
 			if(a instanceof Mangeable ){
 				super.addPoids(((Mangeable)a).getPoids());
 			}

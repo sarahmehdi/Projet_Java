@@ -1,9 +1,8 @@
-public abstract class Accessoires{
+public abstract class Accessoires extends Item{
 	private static int cpt=0;
 	private int numero;
-	private String categorie;
 	public Accessoires(String categorie){
-		this.categorie=categorie;
+		super(categorie);
 		cpt++;
 		numero=cpt;
 	}
@@ -13,6 +12,6 @@ public abstract class Accessoires{
 	}
 	public String toString(){
 		
-		return categorie+" No "+getNumero()+" "+String.format("%.2f",getPoids())+" Kg ";
+		return getNom()+" No "+getNumero()+" "+String.format("%.2f",getPoids())+" Kg ";
 	}
 }

@@ -21,8 +21,22 @@ public class Test{
 		c.manger();
 		System.out.println(c.courir());
 		// ça compile et ça s'exécute très bien juste parfois le poids est negatifs ou alors la vitesse a revoir MERCI!!
+		Monde lebled = new Monde(4);
+		lebled.ajouterItem(c);
+		lebled.ajouterItem(rouge);
+		lebled.ajouterItem(verte);
+		lebled.afficher();
+		Avatar lud = new Avatar("nekki",60,lebled);
+		lud.devenirAmi(c);
+		lud.devenirAmi(b);
+		System.out.println("la creature la plus rapide est "+lud.getCreaturePlusRapide().getNom());
+		lud.seDeplacer();
 		
-		                                                                                                   
+		
+		// marche youpii mais y'en a ils disparaissent ché po ils vont ou ces cons ils ont cru c'était le monde à leur mère ils s'barrent oklm wsh c'est le bled mec donc calme toi MERCIIIII
+		
+		
+		                                                                          
 	}
 }
 		
