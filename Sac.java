@@ -12,7 +12,7 @@ public class Sac extends Accessoires{
 	}
 	public void ajouter(Accessoires a){
 		for (int i=0;i<tab.length;i++){
-			if (tab[i]==null ){
+			if (tab[i]==null){
 				tab[i]=a;
 				break ;
 			}
@@ -49,7 +49,7 @@ public class Sac extends Accessoires{
 		return somme;
 	}
 	public String toString(){
-		String s="Sac no "+super.getNumero()+" "+getPoids()+"contient "+getNbAcc()+" accessoires sur "+tab.length+" places \n";
+		String s="Sac no "+super.getNumero()+" "+String.format("%.2f",getPoids())+"kg contient "+getNbAcc()+" accessoires sur "+tab.length+" places \n";
 		for (int i=0;i<tab.length;i++){
 			if (tab[i]!=null) {
 				
