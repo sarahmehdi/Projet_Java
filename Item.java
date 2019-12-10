@@ -1,7 +1,7 @@
 public abstract class Item {
 	private final String nom;
 	private int x ,y;
-	public Item ( String nom, int x , int y) {
+	public Item (String nom, int x , int y){
 		 this.nom=nom;
 		 this.x=x;
 		 this.y=y;
@@ -22,12 +22,12 @@ public abstract class Item {
 		this.y=y;
 	}
 	public String getNom(){ 
-		return nom; 
+		return nom;
 	}
 	public String toString(){ 
 		return nom+"("+x+","+y+")";
 	}
-	public int distance ( Item item ) { // distance de Manhattan
-		return Math.abs (x-item.x)+Math.abs(y-item.y);
+	public int distance( Item item ){ // distance de Manhattan
+		return Math.abs(x-item.x)+Math.abs(y-item.y);
 	}
 }

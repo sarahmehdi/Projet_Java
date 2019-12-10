@@ -20,7 +20,6 @@ public class Test{
 		System.out.println(c.courir());
 		c.manger();
 		System.out.println(c.courir());
-		// ça compile et ça s'exécute très bien juste parfois le poids est negatifs ou alors la vitesse a revoir MERCI!!
 		Monde lebled = new Monde(4);
 		lebled.ajouterItem(c);
 		lebled.ajouterItem(rouge);
@@ -33,7 +32,9 @@ public class Test{
 		lud.seDeplacer();
 		
 		
-		// marche youpii mais y'en a ils disparaissent ché po ils vont ou ces cons ils ont cru c'était le monde à leur mère ils s'barrent oklm wsh c'est le bled mec donc calme toi MERCIIIII
+		/* marche youpii mais y'en a ils disparaissent ché po ils vont ou ces cons 
+		ils ont cru c'était le monde à leur mère ils s'barrent oklm wsh 
+		c'est le bled mec donc calme toi MERCIIIII*/
 		
 		
 		                                                                          

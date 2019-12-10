@@ -5,7 +5,6 @@ public class Avatar extends Personnage{
 	public ArrayList <Creature> listeAmis;
 	public ArrayList <Accessoires> listeAcc;
 	private Monde monde;
-	//je crois que je vais ajouter une public void ajouterAcc(Accessoires a)
 	public Avatar(String nom,double poids,Monde m){
 		super(nom,poids);
 		monde = m;
