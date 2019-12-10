@@ -99,25 +99,26 @@ public class Avatar extends Personnage{
 		System.out.println(this.getNom()+" rammasse "+a.getNom());
 	}
 	public void rencontrerVoisins(){
-		for(int i=0; i<monde.getVoisins(this).size() ;i++){
-			if(monde.getVoisins(this).get(i) instanceof Accessoires)
-				ramasser((Accessoires)(monde.getVoisins(this).get(i)));
-			if(monde.getVoisins(this).get(i) instanceof Creature)
-				rencontrerAmi((Creature)(monde.getVoisins(this).get(i)));
-			if(monde.getVoisins(this).get(i) instanceof Avatar)
-				System.out.println(this.getNom()+" fait un salut a "+monde.getVoisins(this).get(i).getNom());
+		for(Item i : monde.getVoisins(this)){
+			if(i instanceof Accessoires)
+				ramasser((Accessoires)(i));
+			if(i instanceof Creature)
+				rencontrerAmi((Creature)i);
+			if(i instanceof Avatar)
+				System.out.println(this.getNom()+" fait un salut a "+i.getNom());
 		}
 	}
 	public void seDeplacer(){
-		int i=5;
-		int j=5;
-		while(i>=4){
-			System.out.println("Entrez une abcisse entre [0;4]");
+		int n =monde.getTaille();
+		int i=n;
+		int j=n;
+		while(i>=n || i<0){
+			System.out.println("Entrez une abcisse entre [0;"+(n-1)+"]");
 			Scanner sc= new Scanner(System.in);
 			i=sc.nextInt();
 		}
-		while(j>=4){
-			System.out.println("Entrez une ordonnee entre [0;4]");
+		while(j>=n || j<0){
+			System.out.println("Entrez une ordonnee entre [0;"+(n-1)+"]");
 			Scanner sc2= new Scanner(System.in);
 			j=sc2.nextInt();
 		}

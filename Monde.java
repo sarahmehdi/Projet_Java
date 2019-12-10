@@ -6,6 +6,7 @@ public class Monde{
 		listeItems = new ArrayList<Item>();
 		taille = t;
 	}
+	public int getTaille(){ return taille; }
 	public int getPositionAlea(){
 		return (int)(Math.random()*taille);
 	}
@@ -32,8 +33,8 @@ public class Monde{
 	}
 	public ArrayList<Item> getVoisins(Item item){
 		ArrayList<Item> voisins = new ArrayList<Item>();
-		for(int i=item.getX()-4 ; i<=item.getX()+4; i++){
-			for(int j=item.getY()-4; j<=item.getY()+4; j++){
+		for(int i=item.getX()-2 ; i<=item.getX()+2; i++){
+			for(int j=item.getY()-2; j<=item.getY()+2; j++){
 				if(chercher(i,j)!=null && chercher(i,j)!=item)
 					voisins.add(chercher(i,j));
 			}
