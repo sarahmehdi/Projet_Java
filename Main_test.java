@@ -58,7 +58,7 @@ public class Main_test{
 		
 		int i;
 		Avatar a = a1;
-		for(i=0;i<4;i++){
+		for(i=0;i<10;i++){
 			monde.afficher();
 			System.out.println(a.getNom());
 			a.seDeplacer();
@@ -67,8 +67,8 @@ public class Main_test{
 		}
 		double d1 = a1.course();
 		double d2 = a2.course();
-		if(d1>d2){ System.out.println(a1.getNom()+" est gagnant !");}
-		if(d1<d2){ System.out.println(a2.getNom()+" est gagnant !");}
+		if(d1>d2){ System.out.println(a1.getNom()+" a gagné !");}
+		if(d1<d2){ System.out.println(a2.getNom()+" a gagné !");}
 		if(d1==d2){ System.out.println("Egalité !");}
 	}
 }
