@@ -20,7 +20,7 @@ public class Test{
 		System.out.println(c.courir());
 		c.manger();
 		System.out.println(c.courir());
-		Monde lebled = new Monde(4);
+		Monde lebled = new Monde(4,5);
 		lebled.ajouterItem(c);
 		lebled.ajouterItem(rouge);
 		lebled.ajouterItem(verte);

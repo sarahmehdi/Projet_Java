@@ -1,6 +1,6 @@
 public class Jeu{
 	public static void main(String [] args){
-		Monde lebled = new Monde(20);
+		Monde lebled = new Monde(20,10);
 		Pomme rouge=new Pomme();
 		Pomme verte = new Pomme();
 		Sac s= new Sac(4);

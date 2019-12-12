@@ -1,13 +1,13 @@
 public class Main_test{
 	public static void main(String[]args){
-		Monde monde = new Monde(10);
+		Monde monde = new Monde(10,10);
 		Pomme p1 = new Pomme();
-		Pomme p2 = new Pomme();
+		Bonbon b1 = new Bonbon();
 		Pomme p3 = new Pomme();
-		Pomme p4 = new Pomme();
+		Bonbon b2 = new Bonbon();
 		Pomme p5 = new Pomme();
 		
-		Pomme p6 = new Pomme();
+		Bonbon b3 = new Bonbon();
 		Pomme p7 = new Pomme();
 		Pomme p8 = new Pomme();
 		
@@ -20,12 +20,27 @@ public class Main_test{
 		Creature c1 = new Creature();
 		Creature c2 = new Creature();
 		
+		Elf e1= new Elf();
+		Elf e2= new Elf();
+		
+		Pomme verte = new Pomme();
+		Pomme rouge = new Pomme();
+		Pomme jaune = new Pomme();
+		Bonbon b = new Bonbon();
+		Sac sac = new Sac();
+		
+		sac.ajouter(jaune);
+		e1.ajouterAcc(verte);
+		e1.ajouterAcc(b);
+		e2.ajouterAcc(rouge);
+		e2.ajouterAcc(sac);
+		
 		s1.ajouter(p3);
-		s2.ajouter(p4);
+		s2.ajouter(b2);
 		s2.ajouter(s1);
 		s3.ajouter(p5);
 		
-		s4.ajouter(p6);
+		s4.ajouter(b3);
 		s5.ajouter(p7);
 		
 		c1.ajouterAcc(p8);
@@ -33,32 +48,38 @@ public class Main_test{
 		c2.ajouterAcc(s5);
 		
 		p1.setX(3);
-		p2.setX(8);
+		b1.setX(8);
 		s2.setX(5);
 		s3.setX(6);
 		c1.setX(7);
 		c2.setX(2);
+		e1.setX(4);
+		e2.setX(1);
 		
 		p1.setY(2);
-		p2.setY(6);
+		b1.setY(6);
 		s2.setY(6);
 		s3.setY(1);
 		c1.setY(2);
 		c2.setY(9);
+		e1.setY(4);
+		e2.setY(3);
 		
 		monde.ajouterItem(p1);
-		monde.ajouterItem(p2);
+		monde.ajouterItem(b1);
 		monde.ajouterItem(s2);
 		monde.ajouterItem(s3);
 		monde.ajouterItem(c1);
 		monde.ajouterItem(c2);
+		monde.ajouterItem(e1);
+		monde.ajouterItem(e2);
 		
 		Avatar a1 = new Avatar("lud",58,monde);
 		Avatar a2 = new Avatar("sarah",62,monde);
 		
 		int i;
 		Avatar a = a1;
-		for(i=0;i<10;i++){
+		for(i=0;i<2;i++){
 			monde.afficher();
 			System.out.println(a.getNom());
 			a.seDeplacer();

@@ -1,5 +1,5 @@
 public class Creature extends Personnage{
-	private Sac leSac;
+	protected Sac leSac;
 	public Creature(){
 		super(OutilsNoms.getNom());
 		leSac=new Sac(10);
@@ -12,7 +12,6 @@ public class Creature extends Personnage{
 	}
 	public double getVitesse(){
 		return (1.0/4)*super.poids -leSac.getPoids();
-	
 	}
 	public void manger(){
 		int i=0;

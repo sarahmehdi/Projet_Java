@@ -1,19 +1,15 @@
 import java.util.ArrayList;
-import java.awt.*;
-import javax.swing.*;
-public class Monde extends JPanel{
+public class OldMonde{
 	private ArrayList <Item> listeItems;
-	private int taille, tailleCase;
-	public Monde(int t, int tailleCase){
+	private int taille;
+	public OldMonde(int t){
 		listeItems = new ArrayList<Item>();
 		taille = t;
-		this.tailleCase=tailleCase;
 	}
 	public int getTaille(){ return taille; }
 	public int getPositionAlea(){
 		return (int)(Math.random()*taille);
 	}
-	public int getTailleCase(){ return tailleCase;}
 	public void ajouterItem(Item item){
 		item.setX(getPositionAlea());
 		item.setY(getPositionAlea());
@@ -69,13 +65,5 @@ public class Monde extends JPanel{
 			s+="\n";
 		}
 		System.out.println(s);
-	}
-	public void paintComponent (Graphics g) {
-		super.paintComponent(g);
-		for(Item itemVoisin : listeItems){
-			if (itemVoisin!=null){
-				itemVoisin.dessiner(g,this);
-			}
-		}
 	}
 }

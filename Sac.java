@@ -58,5 +58,12 @@ public class Sac extends Accessoires{
 		}
 		return s;
 	}
+	public boolean contientBonbon(){
+		for(Accessoires a : tab){
+			if(a instanceof Bonbon)
+				return true;
+		}
+		return false;
+	}
 }
 		
