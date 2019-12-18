@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Creature extends Personnage{
 	protected Sac leSac;
 	public Creature(){
@@ -32,6 +34,11 @@ public class Creature extends Personnage{
 	}
 	public String courir(){
 		return super.toString()+" court a vitesse "+String.format("%.2f",getVitesse())+" avec "+leSac.toString();
+	}
+	public void dessiner (Graphics g, Monde m){
+		int tc=m.getTailleCase();
+		g.setColor(new Color(29,36,25)); 
+		g.fill3DRect(getX()*tc,getY()*tc, tc,tc,true); 
 	}
 	
 }

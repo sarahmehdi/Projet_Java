@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Pomme extends Accessoires implements Mangeable {
 	private double rayon;
 	private double poids;
@@ -12,6 +14,11 @@ public class Pomme extends Accessoires implements Mangeable {
 	}
 	public String toString(){
 		return super.toString()+" "+String.format("%.2f",rayon)+" cm";
+	}
+	public void dessiner (Graphics g, Monde m){
+		int tc=m.getTailleCase();
+		g.setColor(new Color(255,0,0));//couleur courante devient rouge 
+		g.fillOval(getX()*tc,getY()*tc, tc,tc);//cercle plein 
 	}
 }
 
