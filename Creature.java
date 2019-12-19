@@ -38,7 +38,7 @@ public class Creature extends Personnage{
 	public void dessiner (Graphics g, Monde m){
 		int tc=m.getTailleCase();
 		g.setColor(new Color(29,36,25)); 
-		g.fill3DRect(getX()*tc,getY()*tc, tc,tc,true); 
+		g.fill3DRect(g.getX()*2,g.getY()*2, 2,2,true); 
 	}
 	
 }

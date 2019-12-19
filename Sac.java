@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Sac extends Accessoires{ 
 	private Accessoires[] tab;
 	public Sac(int n){
@@ -64,6 +66,11 @@ public class Sac extends Accessoires{
 				return true;
 		}
 		return false;
+	}
+	public void dessiner (Graphics g, Monde m){
+		int tc=m.getTailleCase();
+		g.setColor(new Color(255,0,0)); 
+		g.drawRec(getX()*tc,getY()*tc, tc,tc); 
 	}
 }
 		

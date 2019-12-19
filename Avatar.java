@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.awt.*;
+import javax.swing.*;
 public class Avatar extends Personnage{
 	public ArrayList <Creature> listeAmis;
 	public ArrayList <Accessoires> listeAcc;
@@ -125,6 +126,12 @@ public class Avatar extends Personnage{
 		System.out.println("Deplacement de "+this.getNom()+" de ["+this.getX()+";"+this.getY()+"] a ["+i+";"+j+"]");
 		this.setX(i);
 		this.setY(j);
+	}
+	public void dessiner (Graphics g, Monde m){
+		int tc=m.getTailleCase();
+		g.setColor(new Color(29,36,25)); 
+		Image img="/home/user/Projet_Java/creature.png"
+		g.drawImage(img,g.getX()*tc,g.getY()*tc,ImageObserver observer); 
 	}
 }
 		

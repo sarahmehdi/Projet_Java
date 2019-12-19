@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public abstract class Personnage extends Item{
 	protected double poids;
 	public Personnage(String nom ,double poids){
@@ -14,5 +16,7 @@ public abstract class Personnage extends Item{
 	public String toString(){
 		return getNom()+" "+String.format("%.2f",poids)+" kg";
 	}
+	public  abstract void dessiner( Graphics g , Monde m);
+
 }
 	
