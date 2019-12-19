@@ -1,12 +1,20 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.io.*;
 public class Pomme extends Accessoires implements Mangeable {
 	private double rayon;
 	private double poids;
+	private Image image=null;
 	public Pomme(){
 		super("pomme");
 		rayon=Math.random()*5+3;
 		poids=(4.0/3000)*3.14*rayon*rayon*rayon;
+		try{
+			image = ImageIO.read(new File("pomme.png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 
 	}
 	public double getPoids(){
@@ -17,8 +25,7 @@ public class Pomme extends Accessoires implements Mangeable {
 	}
 	public void dessiner (Graphics g, Monde m){
 		int tc=m.getTailleCase();
-		g.setColor(new Color(255,0,0));//couleur courante devient rouge 
-		g.fillOval(getX()*tc,getY()*tc, tc,tc);//cercle plein 
+		g.drawImage(image,getX()*tc,getY()*tc,tc,tc,m);
 	}
 }
 

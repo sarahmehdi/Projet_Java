@@ -1,16 +1,20 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.io.*;
 public class Bonbon extends Accessoires implements Mangeable{
 	private double poids;
 	private String couleur;
-	private static int cpt=0;
+	private Image image=null;
 	public Bonbon(){
 		super("bonbon");
 		poids=Math.random();
-		if(cpt%3==1){couleur = "rouge";}
-		if(cpt%3==2){couleur = "jaune";}
-		if(cpt%3==0){couleur = "rose";}
-		cpt++;
+		couleur="rose";
+		try{
+			image = ImageIO.read(new File("bonbon.png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 	public double getPoids(){
 		return poids;
@@ -20,7 +24,6 @@ public class Bonbon extends Accessoires implements Mangeable{
 	}
 	public void dessiner (Graphics g, Monde m){
 		int tc=m.getTailleCase();
-		g.setColor(new Color(253,108,158)); 
-		g.fillOval(getX()*tc,getY()*tc, tc,tc); 
+		g.drawImage(image,getX()*tc,getY()*tc,tc,tc,m);
 	}
 }

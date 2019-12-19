@@ -1,10 +1,18 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.io.*;
 public class Sac extends Accessoires{ 
 	private Accessoires[] tab;
+	private Image image=null;
 	public Sac(int n){
 		super("sac");
 		tab= new Accessoires[n];
+		try{
+			image = ImageIO.read(new File("sac.png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 	public Sac(){
 		this((int)(Math.random()*10)+1);
@@ -69,8 +77,7 @@ public class Sac extends Accessoires{
 	}
 	public void dessiner (Graphics g, Monde m){
 		int tc=m.getTailleCase();
-		g.setColor(new Color(20,20,20)); 
-		g.drawOval(getX()*tc,getY()*tc, tc,tc); 
+		g.drawImage(image,getX()*tc,getY()*tc,tc,tc,m);
 	}
 }
 		

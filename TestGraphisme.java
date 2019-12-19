@@ -15,21 +15,37 @@ public class TestGraphisme {
 		Monde m=new Monde (NB_CASES,TAILLE_CASE) ;
 		f.setContentPane(m) ; // Aj out du monde à l a f e n ê t r e
 		f.pack(); // A d a p t a t i o n de l a f e n ê t r e au panneau
-		f.setVisible( true ) ;
+		f.setVisible( true );
+		
 		
 		Pomme p1 = new Pomme();
 		Bonbon b1 = new Bonbon();
 		Pomme p3 = new Pomme();
 		Bonbon b2 = new Bonbon();
 		Pomme p5 = new Pomme();
+		Pomme p12 = new Pomme();
+		Pomme p13 = new Pomme();
 		
 		Bonbon b3 = new Bonbon();
 		Pomme p7 = new Pomme();
 		Pomme p8 = new Pomme();
+		Pomme p9 = new Pomme();
+		Pomme p10 = new Pomme();
+		Pomme p11 = new Pomme();
+		Bonbon b4 = new Bonbon();
+		Bonbon b5 = new Bonbon();
+		Bonbon b6 = new Bonbon();
+		Bonbon b7 = new Bonbon();
+		Bonbon b8 = new Bonbon();
 		
 		Sac s1 = new Sac();
 		Sac s2 = new Sac();
 		Sac s3 = new Sac();
+		Sac s4 = new Sac();
+		Sac s5 = new Sac();
+		Sac s6 = new Sac();
+		Sac s7 = new Sac();
+		Sac s8 = new Sac();
 		
 		Cactus cac1 = new Cactus();
 		Cactus cac2 = new Cactus();
@@ -37,8 +53,8 @@ public class TestGraphisme {
 		Cactus cac4 = new Cactus();
 		
 		
-		Sac s4 = new Sac();
-		Sac s5 = new Sac();
+		Sac s9 = new Sac();
+		Sac s10 = new Sac();
 		Creature c1 = new Creature();
 		Creature c2 = new Creature();
 		
@@ -61,9 +77,11 @@ public class TestGraphisme {
 		s2.ajouter(b2);
 		s2.ajouter(s1);
 		s3.ajouter(p5);
+		s3.ajouter(p12);
+		s3.ajouter(p13);
 		
-		s4.ajouter(b3);
-		s5.ajouter(p7);
+		s9.ajouter(b3);
+		s10.ajouter(p7);
 		
 		c1.ajouterAcc(p8);
 		c1.ajouterAcc(s4);
@@ -76,8 +94,26 @@ public class TestGraphisme {
 		c1.setX(7);
 		c2.setX(2);
 		e1.setX(4);
-		e2.setX(1);
-		
+		e2.setX(10);
+		p9.setX(6);
+		p10.setX(7);
+		p11.setX(2);
+		b4.setX(4);
+		b5.setX(1);
+		b6.setX(6);
+		b7.setX(7);
+		b8.setX(2);
+		s9.setX(4);
+		s10.setX(1);
+		s6.setX(4);
+		s7.setX(1);
+		s8.setX(4);
+		s4.setX(10);
+		s5.setX(18);
+		cac1.setX(7);
+		cac2.setX(4);
+		cac1.setY(10);
+		cac2.setY(18);		
 		p1.setY(2);
 		b1.setY(6);
 		s2.setY(6);
@@ -85,7 +121,22 @@ public class TestGraphisme {
 		c1.setY(2);
 		c2.setY(9);
 		e1.setY(4);
-		e2.setY(3);
+		e2.setY(10);
+		p9.setY(6);
+		p10.setY(7);
+		p11.setY(2);
+		b4.setY(4);
+		b5.setY(1);
+		b6.setY(6);
+		b7.setY(7);
+		b8.setY(2);
+		s9.setY(4);
+		s10.setY(15);
+		s6.setY(4);
+		s7.setY(10);
+		s8.setY(15);
+		s7.setX(4);
+		s8.setX(3);
 		
 		m.ajouterItem(cac4);
 		m.ajouterItem(p1);
@@ -99,7 +150,19 @@ public class TestGraphisme {
 		m.ajouterItem(e1);
 		m.ajouterItem(cac4);
 		m.ajouterItem(e2);
-		m.ajouterItem(cac1);
+		m.ajouterItem(p9);
+		m.ajouterItem(p10);
+		m.ajouterItem(p11);
+		m.ajouterItem(b4);
+		m.ajouterItem(b5);
+		m.ajouterItem(b6);
+		m.ajouterItem(b7);
+		m.ajouterItem(b8);
+		m.ajouterItem(s9);
+		m.ajouterItem(s10);
+		m.ajouterItem(s6);
+		m.ajouterItem(s7);
+		m.ajouterItem(s8);
 	
 
 		System.out.println("Bienvenue dans le jeu\nSelectionnez le mode que vous voulez\nPartie Solo : entrez 1\nPartie à deux : entrez 2\n");

@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.awt.*;
+import java.awt.Image;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import javax.swing.*;
 public class Monde extends JPanel{
 	private ArrayList <Item> listeItems;
@@ -8,6 +11,7 @@ public class Monde extends JPanel{
 		listeItems = new ArrayList<Item>();
 		taille = t;
 		this.tailleCase=tailleCase;
+		setPreferredSize(new Dimension(taille*tailleCase, taille*tailleCase));
 	}
 	public int getTaille(){ return taille; }
 	public int getPositionAlea(){
@@ -72,6 +76,8 @@ public class Monde extends JPanel{
 	}
 	public void paintComponent (Graphics g) {
 		super.paintComponent(g);
+		Image fond = Toolkit.getDefaultToolkit().getImage("fond.png");
+		g.drawImage(fond,0,0,getHeight(),getWidth(),null);
 		for(Item itemVoisin : listeItems){
 			if (itemVoisin!=null){
 				itemVoisin.dessiner(g,this);
