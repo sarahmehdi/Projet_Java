@@ -33,6 +33,5 @@ public class Creature extends Personnage{
 	public String courir(){
 		return super.toString()+" court a vitesse "+String.format("%.2f",getVitesse())+" avec "+leSac.toString();
 	}
-	
 }
 
