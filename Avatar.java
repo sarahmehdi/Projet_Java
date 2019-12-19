@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.awt.*;
 import javax.swing.*;
 public class Avatar extends Personnage{
@@ -127,14 +128,22 @@ public class Avatar extends Personnage{
 		int i=n;
 		int j=n;
 		while(i>=n || i<0){
-			System.out.println("Entrez une abcisse entre [0;"+(n-1)+"]");
-			Scanner sc= new Scanner(System.in);
-			i=sc.nextInt();
+			try{
+				System.out.println("Entrez une abcisse entre [0;"+(n-1)+"]");
+				Scanner sc= new Scanner(System.in);
+				i=sc.nextInt();
+			} catch(InputMismatchException e){
+				System.out.println("Ce n'est pas un entier");
+			}
 		}
 		while(j>=n || j<0){
-			System.out.println("Entrez une ordonnee entre [0;"+(n-1)+"]");
-			Scanner sc2= new Scanner(System.in);
-			j=sc2.nextInt();
+			try{
+				System.out.println("Entrez une ordonnee entre [0;"+(n-1)+"]");
+				Scanner sc2= new Scanner(System.in);
+				j=sc2.nextInt();
+			} catch(InputMismatchException e){
+				System.out.println("Ce n'est pas un entier");
+			}
 		}
 		System.out.println("Deplacement de "+this.getNom()+" de ["+this.getX()+";"+this.getY()+"] a ["+i+";"+j+"]");
 		this.setX(i);

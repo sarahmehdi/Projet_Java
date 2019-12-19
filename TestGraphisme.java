@@ -1,5 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
+import java.util.Scanner;
+import java.util.InputMismatchException;
 public class TestGraphisme {
 	private static final int TAILLE_CASE=30;
 	private static final int NB_CASES=20;
@@ -98,29 +100,92 @@ public class TestGraphisme {
 		m.ajouterItem(cac4);
 		m.ajouterItem(e2);
 		m.ajouterItem(cac1);
-		
-		
-		Avatar a1 = new Avatar("lud",58,m);
-		Avatar a2 = new Avatar("sarah",62,m);
-		
-		Avatar a = a1;
-		for(int i=0;i<2;i++){
-			m.afficher();
-			System.out.println(a.getNom());
-			Thread.sleep(1000) ; // R a l e n t i l ’ a f f i c h a g e
-			a.seDeplacer();
-			a.rencontrerVoisins();
-			if(a==a1){ a=a2;} else{a=a1;}
-			m.repaint( ) ; // R e d e s s i n e l e g r a p h i q u e
+	
+
+		System.out.println("Bienvenue dans le jeu\nSelectionnez le mode que vous voulez\nPartie Solo : entrez 1\nPartie à deux : entrez 2\n");
+		int n=0;
+		while(n!=1 && n!=2){
+			System.out.println("Veuillez entrer 1 ou 2");
+			try{
+				Scanner sc= new Scanner(System.in);
+				n=sc.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("veuillez entrer un entier");
+			}
 		}
-		int i;
+
+		switch(n){
+			case(1):{
+				System.out.println("Vous avez choisi une partie solo\nCombien de tours voulez vous jouer ?");
+				int nbtours = 0;
+				while(nbtours<1){
+					System.out.println("vous devez jouer au moins une partie");
+					try{
+						Scanner sc1= new Scanner(System.in);
+						nbtours=sc1.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("veuillez entrer un entier");
+					}
+				}
+				System.out.println("Quel sera le nom de votre avatar ?");
+				Scanner sc2= new Scanner(System.in);
+				String nom = sc2.nextLine();
+				Avatar a = new Avatar(nom,50,m);
+				System.out.println("Votre avatar "+nom+" pese 50kg");
+				System.out.println("Debut de la partie");
+				Thread.sleep(2000);
+				for(int i=0;i<nbtours;i++){
+					m.afficher();
+					System.out.println(a.getNom());
+					Thread.sleep(1000) ; // R a l e n t i l ’ a f f i c h a g e
+					a.seDeplacer();
+					a.rencontrerVoisins();
+					m.repaint( ) ; // R e d e s s i n e l e g r a p h i q u e
+				}
+		}
+		case(2):{
+			System.out.println("Vous avez choisi une partie a deux\nCombien de tours voulez vous chacun jouer ?(veuillez entrer un entier >1");
+				int nbtours = 0;
+				while(nbtours<2){
+					try{
+						Scanner sc3= new Scanner(System.in);
+						nbtours=sc3.nextInt();
+					}catch(InputMismatchException e){
+						System.out.println("veuillez entrer un entier");
+					}
+				}
+				System.out.println("Quel sera le nom de l'avatar numero 1 ?");
+				Scanner sc4= new Scanner(System.in);
+				String nom1 = sc4.nextLine();
+				Avatar a1 = new Avatar(nom1,50,m);
+				System.out.println("Votre avatar "+nom1+" pese 50kg");
+				System.out.println("Quel sera le nom de l'avatar numero 2 ?");
+				Scanner sc5= new Scanner(System.in);
+				String nom2 = sc5.nextLine();
+				Avatar a2 = new Avatar(nom2,50,m);
+				System.out.println("Votre avatar "+nom2+" pese 50kg");
+				System.out.println("Debut de la partie");
+				Thread.sleep(2000);
+
+				Avatar a = a1;
+				for(int i=0;i<2;i++){
+					m.afficher();
+					System.out.println(a.getNom());
+					Thread.sleep(1000) ; // R a l e n t i l ’ a f f i c h a g e
+					a.seDeplacer();
+					a.rencontrerVoisins();
+					if(a==a1){ a=a2;} else{a=a1;}
+					m.repaint( ) ; // R e d e s s i n e l e g r a p h i q u e
+				}
+				int i;
 		
-		double d1 = a1.course();
-		double d2 = a2.course();
-		if(d1>d2){ System.out.println(a1.getNom()+" a gagné !");}
-		if(d1<d2){ System.out.println(a2.getNom()+" a gagné !");}
-		if(d1==d2){ System.out.println("Egalité !");}
+				double d1 = a1.course();
+				double d2 = a2.course();
+				if(d1>d2){ System.out.println(a1.getNom()+" a gagné !");}
+				if(d1<d2){ System.out.println(a2.getNom()+" a gagné !");}
+				if(d1==d2){ System.out.println("Egalité !");}
+		}
 	}
-		
+	}
 	
 }
