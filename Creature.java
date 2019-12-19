@@ -40,6 +40,5 @@ public class Creature extends Personnage{
 		g.setColor(new Color(0,0,0)); //les creatures sont en noir
 		g.fillOval(getX()*tc,getY()*tc, tc,tc); 
 	}
-	
 }
 
