@@ -29,6 +29,12 @@ public class TestGraphisme {
 		Sac s2 = new Sac();
 		Sac s3 = new Sac();
 		
+		Cactus cac1 = new Cactus();
+		Cactus cac2 = new Cactus();
+		Cactus cac3 = new Cactus();
+		Cactus cac4 = new Cactus();
+		
+		
 		Sac s4 = new Sac();
 		Sac s5 = new Sac();
 		Creature c1 = new Creature();
@@ -79,14 +85,20 @@ public class TestGraphisme {
 		e1.setY(4);
 		e2.setY(3);
 		
+		m.ajouterItem(cac4);
 		m.ajouterItem(p1);
 		m.ajouterItem(b1);
 		m.ajouterItem(s2);
+		m.ajouterItem(cac2);
 		m.ajouterItem(s3);
 		m.ajouterItem(c1);
+		m.ajouterItem(cac3);
 		m.ajouterItem(c2);
 		m.ajouterItem(e1);
+		m.ajouterItem(cac4);
 		m.ajouterItem(e2);
+		m.ajouterItem(cac1);
+		
 		
 		Avatar a1 = new Avatar("lud",58,m);
 		Avatar a2 = new Avatar("sarah",62,m);

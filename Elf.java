@@ -8,4 +8,5 @@ public class Elf extends Creature{
 	public String toString(){
 		return "Elf "+super.toString();
 	}
+	
 }
