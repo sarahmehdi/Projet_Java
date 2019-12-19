@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Bonbon extends Accessoires implements Mangeable{
 	private double poids;
 	private String couleur;
@@ -15,5 +17,10 @@ public class Bonbon extends Accessoires implements Mangeable{
 	}
 	public String toString(){
 		return super.toString()+" "+couleur;
+	}
+	public void dessiner (Graphics g, Monde m){
+		int tc=m.getTailleCase();
+		g.setColor(new Color(253,108,158)); 
+		g.fillOval(getX()*tc,getY()*tc, tc,tc); 
 	}
 }

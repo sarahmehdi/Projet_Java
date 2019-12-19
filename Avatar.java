@@ -1,9 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.awt.*;
+import javax.swing.*;
 public class Avatar extends Personnage{
-	public ArrayList <Creature> listeAmis;
-	public ArrayList <Accessoires> listeAcc;
+	private ArrayList <Creature> listeAmis;
+	private ArrayList <Accessoires> listeAcc;
+	private ArrayList <Cactus> listeCac;
+	private  double  VitesseMoins=0;
 	private Monde monde;
 	public Avatar(String nom,double poids,Monde m){
 		super(nom,poids);
@@ -30,7 +33,11 @@ public class Avatar extends Personnage{
 		s+=compteurAcc+" accesoire(s)";
 		return s;
 	}
-	
+	public void rencontrerCac( Cactus c){
+		listeCac.add(c);
+		VitesseMoins+=c.getVitesseMoins();
+		
+	}
 		
 	public boolean estAmis(Creature c){
 		return listeAmis.contains(c);
@@ -69,7 +76,7 @@ public class Avatar extends Personnage{
 		}
 		for(int i=0;i<listeAmis.size();i++){
 			System.out.println(listeAmis.get(i).courir());
-			d+=listeAmis.get(i).getVitesse()*1;
+			d+=listeAmis.get(i).getVitesse()*1-VitesseMoins;
 		}
 		return d;
 	}
@@ -106,6 +113,12 @@ public class Avatar extends Personnage{
 				rencontrerAmi((Creature)i);
 			if(i instanceof Avatar)
 				System.out.println(this.getNom()+" fait un salut a "+i.getNom());
+			if (i instanceof Cactus ){
+				System.out.println("les amis de "+this.getNom()+" ont perdu de la vitesse");
+				rencontrerCac((Cactus)i);
+			}
+				
+				
 		}
 	}
 	public void seDeplacer(){
@@ -125,6 +138,11 @@ public class Avatar extends Personnage{
 		System.out.println("Deplacement de "+this.getNom()+" de ["+this.getX()+";"+this.getY()+"] a ["+i+";"+j+"]");
 		this.setX(i);
 		this.setY(j);
+	}
+	public void dessiner(Graphics g, Monde m){
+		int tc=m.getTailleCase();
+		g.setColor(new Color(0,0,255)); 
+		g.fillRect(getX()*tc,getY()*tc,tc,tc); 
 	}
 }
 		

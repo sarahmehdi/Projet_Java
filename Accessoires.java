@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public abstract class Accessoires extends Item{
 	private static int cpt=0;
 	private int numero;
@@ -14,4 +16,5 @@ public abstract class Accessoires extends Item{
 		
 		return getNom()+" No "+getNumero()+" "+String.format("%.2f",getPoids())+" Kg ";
 	}
+	public  abstract void dessiner( Graphics g , Monde m);
 }
