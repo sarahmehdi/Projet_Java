@@ -108,8 +108,7 @@ public class TestGraphisme {
 			m.afficher();
 			System.out.println(a.getNom());
 			Thread.sleep(1000) ; // R a l e n t i l ’ a f f i c h a g e
-			a1.seDeplacer();
-			a2.seDeplacer();
+			a.seDeplacer();
 			a.rencontrerVoisins();
 			if(a==a1){ a=a2;} else{a=a1;}
 			m.repaint( ) ; // R e d e s s i n e l e g r a p h i q u e

@@ -14,6 +14,7 @@ public class Avatar extends Personnage{
 		monde.ajouterItem(this);
 		listeAmis=new ArrayList<Creature>();
 		listeAcc= new ArrayList<Accessoires>();
+		listeCac= new ArrayList<Cactus>();
 	}
 	public String toString(){
 		String s=super.toString();
