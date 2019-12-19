@@ -69,8 +69,8 @@ public class Sac extends Accessoires{
 	}
 	public void dessiner (Graphics g, Monde m){
 		int tc=m.getTailleCase();
-		g.setColor(new Color(255,0,0)); 
-		g.drawRec(getX()*tc,getY()*tc, tc,tc); 
+		g.setColor(new Color(20,20,20)); 
+		g.drawOval(getX()*tc,getY()*tc, tc,tc); 
 	}
 }
 		

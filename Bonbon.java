@@ -20,7 +20,7 @@ public class Bonbon extends Accessoires implements Mangeable{
 	}
 	public void dessiner (Graphics g, Monde m){
 		int tc=m.getTailleCase();
-		g.setColor(new Color(255,0,0)); 
-		g.drawOval(getX()*tc,getY()*tc, tc,tc); 
+		g.setColor(new Color(253,108,158)); 
+		g.fillOval(getX()*tc,getY()*tc, tc,tc); 
 	}
 }
